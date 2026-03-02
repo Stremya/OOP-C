@@ -2,17 +2,46 @@
 using namespace std;
 class Student
 {
+private:
+	char* name;
+	char* date;
+	long long number;
+	char* city;
+	char* country;
+	char* school_name;
+	char* school_city;
+	char* school_country;
+	char* group;
+
+	void copyString(char*& dest, const char* src);
 public:
-	string name;
-	string date;
-	int number;
-	string city;
-	string country;
-	string school_name;
-	string school_city;
-	string school_country;
-	string group;
+	Student();
+
+	Student(const char* n, const char* d, long long num, const char* c, const char* coun,
+		const char* s_n, const char* s_c, const char* s_coun, const char* g);
+
+	~Student();
+
+	const char* getName() const { return name; }
+	const char* getDate() const { return date; }
+	long long getNumber() const { return number; }
+	const char* getCity() const { return city; }
+	const char* getCountry() const { return country; }
+	const char* getSchool_name() const { return school_name; }
+	const char* getSchool_city() const { return school_city; }
+	const char* getSchool_country() const { return school_country; }
+	const char* getGroup() const { return group; }
+
+	void setName(const char* name);
+	void setDate(const char* date);
+	void setNumber(long long number);
+	void setCity(const char* city);
+	void setCountry(const char* country);
+	void setSchool_name(const char* school_name);
+	void setSchool_city(const char* school_city);
+	void setSchool_country(const char* school_country);
+	void setGroup(const char* group);
 	// методы
 	void enterStudent();
-	void printStudent();
+	void printStudent() const;
 };
