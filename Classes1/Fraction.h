@@ -6,13 +6,14 @@ private:
 	double num;
 	// Знаменатель
 	double den;
+
+	static int objectCount; // Подсчет объект
 public:
 	Fraction();
 
-	Fraction(double n, double d)
-		: num(n), den(d) {}
+	Fraction(double n, double d);
 
-	~Fraction() {}
+	~Fraction();
 
 	double getNum() const { return num; }
 	double getDen() const { return den; }
@@ -22,5 +23,7 @@ public:
 
 	Fraction enterFraction();
 	void printFraction();
+
+	static int getObjectCount() { return objectCount; }
 };
 

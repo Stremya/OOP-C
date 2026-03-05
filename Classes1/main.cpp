@@ -15,7 +15,6 @@ int main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	
 	// Работа с классом Student
 	Student student1, student2;
 
@@ -34,8 +33,8 @@ int main() {
 	student2.printStudent();
 	cout << endl;
 	
+	cout << "Всего объектов создано в классе Student: " << Student::getObjectCount() << endl;
 
-	/*
 	// Работа с классом Point
 	Point coordinates1, coordinates2;
 	coordinates1.setX(3.3);
@@ -49,8 +48,11 @@ int main() {
 	if (coordinates2.loadFromFile()) {
 		coordinates2.printCoordinates();
 	}
-	*/
-	/*
+	
+	cout << endl;
+	cout << "Всего объектов создано в классе Point: " << Point::getObjectCount() << endl;
+	cout << endl;
+
 	// Работа с классом Fraction
 	Fraction fraction1, fraction2;
 
@@ -61,7 +63,11 @@ int main() {
 
 	fraction2 = fraction2.enterFraction();
 	fraction2.printFraction();
-	*/
+
+	cout << endl;
+	cout << "Всего объектов создано в классе Fraction: " << Fraction::getObjectCount() << endl;
+	cout << endl;
+
 	_getch();
 	return 0;
 }

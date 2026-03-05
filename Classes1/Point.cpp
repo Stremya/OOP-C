@@ -4,10 +4,17 @@
 #include <iostream>
 using namespace std;
 const char* const FILE_NAME = "coordinates.dat";
-Point::Point() {
-	x = 0;
-	y = 0;
-	z = 0;
+
+int Point::objectCount = 0;
+
+Point::Point() : Point(0, 0, 0) {}
+
+Point::Point(double x, double y, double z) : x(x), y(y), z(z) {
+	objectCount++;
+}
+
+Point::~Point() {
+	objectCount--;
 }
 
 void Point::setX(double x) {

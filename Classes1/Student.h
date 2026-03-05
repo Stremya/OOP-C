@@ -3,19 +3,25 @@ using namespace std;
 class Student
 {
 private:
-	char* name;
-	char* date;
-	long long number;
-	char* city;
-	char* country;
-	char* school_name;
-	char* school_city;
-	char* school_country;
-	char* group;
+	char* name; // ФИО студента
+	char* date; // Дата
+	long long number; // Номер
+	char* city; // Город студента
+	char* country; // Страна студента
+	char* school_name; // Название школы
+	char* school_city; // Город школы
+	char* school_country; // Страна школы
+	char* group; // Группа
+
+	static int objectCount; // Подсчет объект
 
 	void copyString(char*& dest, const char* src);
 public:
 	Student();
+
+	Student(const char* n);
+
+	Student(const char* n, const char* d, long long num);
 
 	Student(const char* n, const char* d, long long num, const char* c, const char* coun,
 		const char* s_n, const char* s_c, const char* s_coun, const char* g);
@@ -44,4 +50,7 @@ public:
 	// методы
 	void enterStudent();
 	void printStudent() const;
+
+	static int getObjectCount() { return objectCount; }
+
 };

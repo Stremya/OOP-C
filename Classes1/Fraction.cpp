@@ -3,9 +3,17 @@
 #include <string>
 
 using namespace std;
-Fraction::Fraction() {
-	num = 1;
-	den = 1;
+
+int Fraction::objectCount = 0;
+
+Fraction::Fraction() : Fraction(1, 1) {}
+
+Fraction::Fraction(double n, double d) : num(n), den(d) {
+	objectCount++; 
+}
+
+Fraction::~Fraction() {
+	objectCount--;
 }
 
 void Fraction::setNum(double n) {

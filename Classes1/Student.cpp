@@ -6,6 +6,9 @@
 
 using namespace std;
 
+int Student::objectCount = 0;
+
+
 void Student::copyString(char*& dest, const char* src) {
 	if (src == nullptr) src = "";          // защита от нулевого указателя
 	int len = strlen(src);                // длина строки без '\0'
@@ -13,27 +16,17 @@ void Student::copyString(char*& dest, const char* src) {
 	strcpy_s(dest, len + 1, src);        // безопасное копирование
 }
 
-Student::Student() {
-	name = nullptr;
-	date = nullptr;
-	city = nullptr;
-	country = nullptr;
-	school_name = nullptr;
-	school_city = nullptr;
-	school_country = nullptr;
-	group = nullptr;
+Student::Student(const char* n) : Student(n, "Неизвестно", 11111,
+	"Неизвестно", "Неизвестно",
+	"Неизвестно", "Неизвестно",
+	"Неизвестно", "Неизвестно") {}
 
-	copyString(name, "Неизвестно");
-	copyString(date, "Неизвестно");
-	copyString(city, "Неизвестно");
-	copyString(country, "Неизвестно");
-	copyString(school_name, "Неизвестно");
-	copyString(school_city, "Неизвестно");
-	copyString(school_country, "Неизвестно");
-	copyString(group, "Неизвестно");
+Student::Student(const char* n, const char* d, long long num)
+	: Student(n, d, num, "Неизвестно", "Неизвестно",
+		"Неизвестно", "Неизвестно", "Неизвестно", "Неизвестно") {}
 
-	number = 11111;
-}
+
+Student::Student()  : Student("Неизвестно") {}
 
 Student::Student(const char* n, const char* d, long long num, const char* c, const char* coun,
 	const char* s_n, const char* s_c, const char* s_coun, const char* g) {
@@ -56,6 +49,8 @@ Student::Student(const char* n, const char* d, long long num, const char* c, con
 	copyString(group, g);
 
 	setNumber(num);
+
+	objectCount++;
 }
 
 Student::~Student() {
