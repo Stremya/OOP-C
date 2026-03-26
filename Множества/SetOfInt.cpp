@@ -109,9 +109,9 @@ bool SetOfInt::operator==(const SetOfInt & other) const {
 
 ostream& operator<<(ostream& os, const SetOfInt& other) {
     os << "{";
-    for (int i = 0; i < set.size; i++) {
-        os << set.elements[i];
-        if (i < set.size - 1) os << ", ";
+    for (int i = 0; i < other.size; i++) {
+        os << other.elements[i];
+        if (i < other.size - 1) os << ", ";
     }
     os << "}";
     return os;
@@ -119,12 +119,12 @@ ostream& operator<<(ostream& os, const SetOfInt& other) {
 
 istream& operator>>(istream& is, SetOfInt& other) {
     int n, value;
-    cout << "Êîëè÷åñòâî ýëåìåíòîâ: ";
+    cout << "ÃŠÃ®Ã«Ã¨Ã·Ã¥Ã±Ã²Ã¢Ã® Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã®Ã¢: ";
     is >> n;
-    cout << "Ýëåìåíòû: ";
+    cout << "ÃÃ«Ã¥Ã¬Ã¥Ã­Ã²Ã»: ";
     for (int i = 0; i < n; i++) {
         is >> value;
-        set += value;
+        other += value;
     }
     return is;
 }
