@@ -53,6 +53,28 @@ Student::Student(const char* n, const char* d, long long num, const char* c, con
 	objectCount++;
 }
 
+Student::Student(Student&& other) noexcept
+	: name(other.name),
+	date(other.date),
+	number(other.number),
+	city(other.city),
+	country(other.country),
+	school_name(other.school_name),
+	school_city(other.school_city),
+	school_country(other.school_country),
+	group(other.group) {
+
+	other.name = nullptr;
+	other.date = nullptr;
+	other.number = 0;
+	other.city = nullptr;
+	other.country = nullptr;
+	other.school_name = nullptr;
+	other.school_city = nullptr;
+	other.school_country = nullptr;
+	other.group = nullptr;
+}
+
 Student::~Student() {
 	delete[] name;
 	delete[] date;
@@ -62,6 +84,40 @@ Student::~Student() {
 	delete[] school_city;
 	delete[] school_country;
 	delete[] group;
+}
+
+Student& Student::operator=(Student&& other) noexcept {
+	if (this != &other) {
+		delete[] name;
+		delete[] date;
+		delete[] city;
+		delete[] country;
+		delete[] school_name;
+		delete[] school_city;
+		delete[] school_country;
+		delete[] group;
+
+		name = other.name;
+		date = other.date;
+		number = other.number;
+		city = other.city;
+		country = other.country;
+		school_name = other.school_name;
+		school_city = other.school_city;
+		school_country = other.school_country;
+		group = other.group;
+
+		other.name = nullptr;
+		other.date = nullptr;
+		other.number = 0;
+		other.city = nullptr;
+		other.country = nullptr;
+		other.school_name = nullptr;
+		other.school_city = nullptr;
+		other.school_country = nullptr;
+		other.group = nullptr;
+	}
+	return *this;
 }
 
 void Student::setName(const char* n) {

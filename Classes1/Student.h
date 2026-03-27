@@ -26,7 +26,11 @@ public:
 	Student(const char* n, const char* d, long long num, const char* c, const char* coun,
 		const char* s_n, const char* s_c, const char* s_coun, const char* g);
 
+	Student(Student&& other) noexcept;
+
 	~Student();
+
+	Student& operator=(Student&& other) noexcept;
 
 	const char* getName() const { return name; }
 	const char* getDate() const { return date; }
