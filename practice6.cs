@@ -10,7 +10,7 @@ namespace practice
     {
         static void Main()
         {
-            Console.WriteLine("=== Задание 1: Программа «Статистика» ===\n");
+            Console.WriteLine("=== Программа «Статистика» ===\n");
 
             string text = "Вот дом, Который построил Джек. " +
                          "А это пшеница, Которая в темном чулане хранится " +
